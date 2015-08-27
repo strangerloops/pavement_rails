@@ -7,23 +7,23 @@
 			}).addTo(Window.map);
 			var packets = <%= @packets.to_json.html_safe %>;
 
-			// packets.forEach(function(packet){
-			// 	var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
-			// 	var end   = new L.LatLng(packet['end_location'][0], packet['end_location'][1]);
-			// 	var points = [start, end];
-			// 	var roughness = packet['roughness'];
-			// 	var red = (roughness * 100) % 255;
-			// 	var green = 0;
-			// 	var blue = 255 - ((roughness * 100) % 255);
-			// 	var color = "rgb(" + red + " ," + green + "," + blue +")"; 
-		 //  	var poly = new L.Polyline(points, {
-	  //   		color: color,
-	  //   		weight: 3,
-	  //   		opacity: 0.5,
-	  //   		smoothFactor: 1
-	  //   	});
-  	//   	poly.addTo(Window.map);
-			// });
+			packets.forEach(function(packet){
+				var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
+				var end   = new L.LatLng(packet['end_location'][0], packet['end_location'][1]);
+				var points = [start, end];
+				var roughness = packet['roughness'];
+				var red = (roughness * 100) % 255;
+				var green = 0;
+				var blue = 255 - ((roughness * 100) % 255);
+				var color = "rgb(" + red + " ," + green + "," + blue +")"; 
+		  	var poly = new L.Polyline(points, {
+	    		color: color,
+	    		weight: 5,
+	    		opacity: 0.5,
+	    		smoothFactor: 1
+	    	});
+  	  	poly.addTo(Window.map);
+			});
 	  };
 	</script>
 </head>
