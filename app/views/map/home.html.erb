@@ -19,8 +19,8 @@
 				var green = 0;
 				var blue = 255 - ((roughness * 100) % 255);
 				var color = "rgb(" + red + " ," + green + "," + blue +")"; 
-		  	var poly = new L.Polyline(pointlist, {
-	    		color: 'red',
+		  	var poly = new L.Polyline(points, {
+	    		color: color,
 	    		weight: 3,
 	    		opacity: 0.5,
 	    		smoothFactor: 1
