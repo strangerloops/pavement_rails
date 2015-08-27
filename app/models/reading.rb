@@ -20,7 +20,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def sum numbers
-    return self.inject(0){|accum, i| accum + i }
+    return numbers.inject(0){|accum, i| accum + i }
   end
 
 	def mean numbers
