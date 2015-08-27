@@ -11,6 +11,10 @@ class Reading < ActiveRecord::Base
 		standard_deviation accel_as_array
 	end
 
+	def sum
+    return self.inject(0){|accum, i| accum + i }
+  end
+
 	def accel_as_array
 		acceleration[2..-1].split.map { |val| val.to_f }
 	end
