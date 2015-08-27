@@ -12,7 +12,7 @@
 				var end   = new L.LatLng(packet['end_location'][0], packet['end_location'][1]);
 				var points = [start, end];
 				var roughness = packet['roughness'];
-				var red = (roughness * 100) % 255;
+				var red = (roughness * 500) % 255;
 				var green = 0;
 				var blue = 255 - ((roughness * 500) % 255);
 				var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")"; 
