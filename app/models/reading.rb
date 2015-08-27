@@ -16,7 +16,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def has_accel?
-		acceleration.empty?
+		!acceleration.empty?
 	end
 
 	def mean numbers
