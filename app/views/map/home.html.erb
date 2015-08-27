@@ -17,9 +17,9 @@
 				var blue = 255 - ((roughness * 100) % 255);
 				var color = "rgb(" + red + " ," + green + "," + blue +")"; 
 		  	var poly = new L.Polyline(points, {
-	    		color: color,
-	    		weight: 5,
-	    		opacity: 0.5,
+	    		color: 'color',
+	    		weight: 10,
+	    		opacity: 1,
 	    		smoothFactor: 1
 	    	});
   	  	Window.map.addLayer(poly);
