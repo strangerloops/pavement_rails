@@ -4,7 +4,7 @@
 	<script type="text/javascript">
 	  window.onload = function () {
 	  	Window.map = L.map('map').setView([41.8850300,-87.6250500], 15);
-	  	L.tileLayer('http://{s}.tile.cloudmade.com/e7b61e61295a44a5b319ca0bd3150890/997/256/{z}/{x}/{y}.png', {
+	  	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(Window.map);
 			var packets = <%= @packets.to_json.html_safe %>;
