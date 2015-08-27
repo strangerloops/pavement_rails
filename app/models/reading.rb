@@ -19,7 +19,7 @@ class Reading < ActiveRecord::Base
 		!acceleration.empty?
 	end
 
-	def sum
+	def sum numbers
     return self.inject(0){|accum, i| accum + i }
   end
 
