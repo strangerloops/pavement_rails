@@ -1,5 +1,3 @@
-require 'descriptive-statistics'
-
 class Reading < ActiveRecord::Base
 	def packet
 		{
@@ -10,7 +8,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def get_roughness
-		accel_as_array.standard_deviation
+		standard_deviation accel_as_array
 	end
 
 	def accel_as_array
@@ -19,5 +17,19 @@ class Reading < ActiveRecord::Base
 
 	def has_accel?
 		acceleration.empty?
+	end
+
+	def mean numbers
+  	sum(numbers) / numbers.length.to_f
+	end
+
+	def sample_variance numbers
+	  m = mean numbers
+	  sum = numbers.inject(0) {|accum, i| accum +(i-m)**2 }
+	  sum/(numbers.length - 1).to_f
+	end
+
+	def standard_deviation numbers
+	  return Math.sqrt(sample_variance(numbers))
 	end
 end
