@@ -1,0 +1,1 @@
+../../../NSRails/source/NSRConfig.h
