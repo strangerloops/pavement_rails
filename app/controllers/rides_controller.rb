@@ -11,6 +11,17 @@ class RidesController < ApplicationController
 		end
 	end
 
+	def update
+		@ride = Ride.find(params[:id])
+		respond_to do |format|
+			if @ride.update_attributes(ride_params)
+				format.json { head :ok }
+			else
+				format.json { render :json => @ride.errors, :status => :unprocessable_entity }
+			end
+		end
+	end
+
 	def show
 		@ride = Ride.find(params[:id])
 		respond_to do |format|
