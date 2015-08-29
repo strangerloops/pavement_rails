@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   get 'map/home'
 
-  resources :readings
+  resources :readings, :rides
 
 end
