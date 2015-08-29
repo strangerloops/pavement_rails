@@ -12,7 +12,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def accel_as_array
-		acceleration[2..-1].split.map { |val| val.to_f }
+		acceleration.split.map(&:to_f)
 	end
 
 	def has_accel?
@@ -20,7 +20,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def sum numbers
-    return numbers.inject(0){|accum, i| accum + i }
+    numbers.reduce(&:+)
   end
 
 	def mean numbers
@@ -30,10 +30,10 @@ class Reading < ActiveRecord::Base
 	def sample_variance numbers
 	  m = mean numbers
 	  sum = numbers.inject(0) {|accum, i| accum +(i-m)**2 }
-	  sum/(numbers.length - 1).to_f
+	  sum / (numbers.length - 1).to_f
 	end
 
 	def standard_deviation numbers
-	  return Math.sqrt(sample_variance(numbers))
+	  Math.sqrt(sample_variance(numbers))
 	end
 end
