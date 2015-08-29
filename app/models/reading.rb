@@ -1,4 +1,7 @@
 class Reading < ActiveRecord::Base
+
+	belongs_to :ride
+
 	def packet
 		{
 			start_location: [start_lat,start_lon],
