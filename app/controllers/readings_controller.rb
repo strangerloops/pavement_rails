@@ -20,6 +20,6 @@ class ReadingsController < ApplicationController
 
 	protected
 	def reading_params
-		params.require(:reading).permit(:start_lat, :end_lat, :start_lon, :end_lon, :acceleration)
+		params.require(:reading).permit(:start_lat, :end_lat, :start_lon, :end_lon, :ride_id, :acceleration)
 	end
 end
