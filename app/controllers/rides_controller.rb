@@ -20,7 +20,7 @@ class RidesController < ApplicationController
 
 	protected
 	def ride_params
-		params.require(:ride).permit(:start_lat, :end_lat, :start_lon, :end_lon, :acceleration)
+		params.require(:ride).permit(:start_time, :end_time)
 	end
 
 end
