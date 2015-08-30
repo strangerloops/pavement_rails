@@ -24,13 +24,4 @@ class MapController < ApplicationController
   	# 	reading.packet
   	# end
   end
-
-  def packets_for_ride
-  	@packets = Ride.find(params[:id]).readings do |reading|
-  		reading.has_accel?
-  	end.map do |reading|
-  		reading.packet
-  	end
-  end
-
 end
