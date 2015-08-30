@@ -15,9 +15,7 @@ class MapController < ApplicationController
   end
 
   def last_ride
-    @packets = [Ride.last].map do |ride|
-      packets_for_ride ride
-    end
+    @packets = packets_for_ride Ride.last
     render :map
 
   	# @packets = Ride.last.readings do |reading|
@@ -28,9 +26,7 @@ class MapController < ApplicationController
   end
 
   def one_ride
-  	@packets = [Ride.find(params[:id])].map do |ride|
-      packets_for_ride ride
-    end
+  	@packets = packets_for_ride Ride.find(params[:id])
     render :map
   end
 end
