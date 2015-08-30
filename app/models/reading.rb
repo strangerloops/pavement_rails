@@ -1,4 +1,5 @@
 class Reading < ActiveRecord::Base
+	include StatisticsHelper
 
 	belongs_to :ride
 
@@ -7,6 +8,7 @@ class Reading < ActiveRecord::Base
 			start_location: [start_lat,start_lon],
 			end_location: [end_lat,end_lon],
 			roughness: get_roughness
+			# speed: get_speed
 		}
 	end
 
@@ -22,21 +24,7 @@ class Reading < ActiveRecord::Base
 		!acceleration.empty?
 	end
 
-	def sum numbers
-    numbers.reduce(&:+)
-  end
-
-	def mean numbers
-  	sum(numbers) / numbers.length.to_f
-	end
-
-	def sample_variance numbers
-	  m = mean numbers
-	  sum = numbers.inject(0) {|accum, i| accum +(i-m)**2 }
-	  sum / (numbers.length - 1).to_f
-	end
-
-	def standard_deviation numbers
-	  Math.sqrt(sample_variance(numbers))
+	def speed # avg speed over this segment
+		
 	end
 end

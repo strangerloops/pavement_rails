@@ -52,6 +52,7 @@ GEM
     descriptive_statistics (2.4.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    geo-distance (0.1.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -148,6 +149,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   descriptive_statistics (~> 2.4.0)
+  geo-distance
   jbuilder (~> 2.0)
   jquery-rails
   pg
