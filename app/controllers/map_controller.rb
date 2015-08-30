@@ -1,4 +1,5 @@
 class MapController < ApplicationController
+  include MapHelper
 
   def all_rides
 
