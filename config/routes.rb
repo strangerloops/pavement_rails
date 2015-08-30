@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'map/all' => 'map#all_rides'
   get 'map/last' => 'map#last_ride'
-  get 'map/ride/:id' => 'map#packets_for_ride'
+  get 'map/ride/:id' => 'map#one_ride'
 
   resources :readings, :rides
 
