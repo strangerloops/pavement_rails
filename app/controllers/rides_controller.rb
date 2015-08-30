@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
 
 	def create
-		if !ride_params['calibration_id'] then ride_params['calibration_id'] = ride_params['id'] end
+		if ride_params['calibration_id'].empty? then ride_params['calibration_id'] = ride_params['id'] end
 		@ride = Ride.new(ride_params)
 		respond_to do |format|
 			if @ride.save
