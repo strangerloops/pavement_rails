@@ -6,22 +6,11 @@ class MapController < ApplicationController
       packets_for_ride ride
     end.reduce(&:+)
     render :map
-  	# @packets = Reading.all.select do |reading|
-  	# 	reading.has_accel?
-  	# end.map do |reading|
-  	# 	reading.packet
-  	# end
   end
 
   def last_ride
     @packets = packets_for_ride Ride.last
     render :map
-
-  	# @packets = Ride.last.readings do |reading|
-  	# 	reading.has_accel?
-  	# end.map do |reading|
-  	# 	reading.packet
-  	# end
   end
 
   def one_ride
