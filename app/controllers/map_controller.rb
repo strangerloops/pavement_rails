@@ -2,10 +2,9 @@ class MapController < ApplicationController
   include MapHelper
 
   def all_rides
-
     @packets = Ride.all.map do |ride|
       packets_for_ride ride
-    end
+    end.reduce(&:+)
     render :map
   	# @packets = Reading.all.select do |reading|
   	# 	reading.has_accel?
