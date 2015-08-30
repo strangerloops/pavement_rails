@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
 
+gem 'rails_12factor'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
