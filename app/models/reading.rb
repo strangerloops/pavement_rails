@@ -3,17 +3,30 @@ class Reading < ActiveRecord::Base
 
 	belongs_to :ride
 
-	def packet
+	def sd_packet
 		{
 			start_location: [start_lat,start_lon],
 			end_location: [end_lat,end_lon],
-			roughness: get_roughness
+			roughness: get_sd_roughness
 			# speed: get_speed
 		}
 	end
 
-	def get_roughness
+	def mean_packet
+		{
+			start_location: [start_lat,start_lon],
+			end_location: [end_lat,end_lon],
+			roughness: get_mean_roughness
+			# speed: get_speed
+		}
+	end
+
+	def get_sd_roughness
 		standard_deviation accel_as_array
+	end
+
+	def get_mean_roughness
+		mean accel_as_array
 	end
 
 	def accel_as_array
