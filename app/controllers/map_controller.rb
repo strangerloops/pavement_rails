@@ -3,18 +3,18 @@ class MapController < ApplicationController
 
   def all_rides
     @packets = Ride.all.map do |ride|
-      packets_for_ride ride
+      packets_for ride
     end.reduce(&:+)
     render :map
   end
 
   def last_ride
-    @packets = packets_for_ride Ride.last
+    @packets = packets_for Ride.last
     render :map
   end
 
   def one_ride
-  	@packets = packets_for_ride Ride.find(params[:id])
+  	@packets = packets_for Ride.find(params[:id])
     render :map
   end
 end
