@@ -20,18 +20,18 @@ body {
 	padding-right: 5%;
 }
 
-body > #navigation {
+body > div > #navigation {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-body > #navigation a {
+body > div > #navigation a {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-body > #navigation a:hover {
+body > div > #navigation a:hover {
 	text-decoration: underline;
 }
