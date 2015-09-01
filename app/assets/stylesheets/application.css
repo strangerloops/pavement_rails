@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+#navigation {
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	list-style-type: none;
+}
+
+#navigation a {
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+#navigation a:hover {
+	text-decoration: underline;
+}
