@@ -52,12 +52,13 @@ class Reading < ActiveRecord::Base
 		!acceleration.empty?
 	end
 
-	def speed # avg speed over this segment
-		# distance = time * speed
-		# speed = distance / time
+	def distance_meters
 		GeoDistance.default_algorithm = :haversine
-  	distance = GeoDistance.distance(start_lat, start_lon, end_lat, end_lon).meters.number
+  	GeoDistance.distance(start_lat, start_lon, end_lat, end_lon).meters.number
+	end
+
+	def speed # meters per second
   	time = end_time - start_time
-  	distance / time
+  	distance_meters / time
 	end
 end
