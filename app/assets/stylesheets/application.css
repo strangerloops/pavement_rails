@@ -15,6 +15,23 @@
  */
 
 body { 
-	padding-top: 10%;
-	padding-left: 10%;
+	padding-top: 5%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+body > #navigation {
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+body > #navigation a {
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+body > #navigation a:hover {
+	text-decoration: underline;
 }
