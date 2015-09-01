@@ -39,7 +39,16 @@ class Reading < ActiveRecord::Base
 	end
 
 	def mean_roughness_adjusted_for_speed
-		if speed > 4.0 then (get_mean_roughness / (speed / 4.0)) else get_mean_roughness end
+		# speed: 5.3 to 8.7
+		# rough: 0.4 to 0.9
+		# speed went up by 64%
+		# rough went up by 125%
+		# roughness grows by twice as much as speed
+		# speed doubles -> roughness will quadruple
+		# suppose 4 is the baseline
+		# if im going 8, im doubling baseline speed, roughness will be ~4 times higher, i have to divide roughness by 2x the change in speed (???)
+		# seems p drastic gonna stick with an arbitrary like 1.5 here
+		if speed > 4.0 then (get_mean_roughness / (1.5 * (speed / 4.0))) else get_mean_roughness end
 	end
 
 	def accel_as_array
