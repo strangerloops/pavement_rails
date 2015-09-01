@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'map/all' => 'map#all_rides'
   get 'map/last' => 'map#last_ride'
   get 'map/ride/:id' => 'map#one_ride'
-  
+  get 'map/ride-mean/:id' => 'map#one_ride_mean'
+
   get 'map/all-mean' => 'map#all_rides_mean'
 
   resources :readings, :rides

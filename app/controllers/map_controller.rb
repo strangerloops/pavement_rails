@@ -25,7 +25,7 @@ class MapController < ApplicationController
     render :map
   end
 
-  def one_ride
+  def one_ride_mean
     @packets = mean_packets_for Ride.find(params[:id])
     render :map
   end
