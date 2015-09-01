@@ -40,7 +40,8 @@ class Reading < ActiveRecord::Base
 
 	def mean_roughness_adjusted_for_speed
 		# pretty arbitrary right here would be nice to get an actual regression on speed v roughness
-		if speed > 4.0 then (get_mean_roughness / (((square(speed - 4.0)) / speed) + 1.0)) else get_mean_roughness end
+		# just messed around w it until adjusted values on same pavement w diff speeds came p close
+		if speed > 4.0 then (get_mean_roughness / (((square(speed - 4.0)) / (speed * 2)) + 1.0)) else get_mean_roughness end
 	end
 
 	def accel_as_array
