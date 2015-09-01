@@ -17,4 +17,8 @@ module StatisticsHelper
 	def standard_deviation numbers
 	  Math.sqrt(sample_variance(numbers))
 	end
+
+	def square number
+		number * number
+	end
 end
