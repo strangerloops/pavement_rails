@@ -20,18 +20,18 @@
 	padding-right: 5%;
 }
 
-body > div > #navigation {
+#navbar {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-body > div > #navigation a {
+#navbar a {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-body > div > #navigation a:hover {
+#navbar a:hover {
 	text-decoration: underline;
 }
