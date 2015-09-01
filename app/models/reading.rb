@@ -26,7 +26,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def get_mean_roughness
-		mean accel_as_array
+		mean accel_as_array.map(&:magnitude)
 	end
 
 	def accel_as_array
