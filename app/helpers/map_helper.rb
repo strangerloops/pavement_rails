@@ -14,4 +14,12 @@ module MapHelper
   		reading.mean_packet
   	end
 	end
+
+	def adjusted_mean_packets_for ride
+		Reading.where(ride_id: ride.id).select do |reading|
+  		reading.has_accel?
+  	end.map do |reading|
+  		reading.adjusted_mean_packet
+  	end
+	end
 end

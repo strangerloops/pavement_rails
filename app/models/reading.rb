@@ -21,12 +21,25 @@ class Reading < ActiveRecord::Base
 		}
 	end
 
+	def adjusted_mean_packet
+		{
+			start_location: [start_lat,start_lon],
+			end_location: [end_lat,end_lon],
+			roughness: mean_roughness_adjusted_for_speed
+			# speed: get_speed
+		}
+	end
+
 	def get_sd_roughness
 		standard_deviation accel_as_array
 	end
 
 	def get_mean_roughness
 		mean accel_as_array.map(&:magnitude)
+	end
+
+	def mean_roughness_adjusted_for_speed
+		if speed > 4.0 then (get_mean_roughness / (speed - 4.0)) else get_mean_roughness
 	end
 
 	def accel_as_array
