@@ -39,7 +39,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def mean_roughness_adjusted_for_speed
-		if speed > 4.0 then (get_mean_roughness / (speed - 4.0)) else get_mean_roughness
+		if speed > 4.0 then (get_mean_roughness / (speed - 4.0)) else get_mean_roughness end
 	end
 
 	def accel_as_array
