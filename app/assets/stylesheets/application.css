@@ -34,7 +34,9 @@ a:hover {
 	padding-bottom: 3%;
 }
 
-#navbar a {
+#links a {
 	text-align: center;
 	text-decoration: none;
+	padding-left: 1em;
+	padding-right: 1em;
 }
