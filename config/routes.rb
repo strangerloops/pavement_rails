@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	get '/' => 'static_pages#home'
   get '/contact' => 'static_pages#contact'
+  get '/contribute' => 'static_pages#contribute'
   get '/map' => 'map#all_rides_adjusted_mean'
   
   get 'static_pages/home'
