@@ -23,12 +23,18 @@ a:hover {
 }
 
 #rootpage { 
-	padding-top: 5%;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-top: 3%;
+	padding-left: 8%;
+	padding-right: 8%;
 }
 
 #navbar {
+	text-align: center;
+	text-decoration: none;
+	padding-bottom: 3%;
+}
+
+#navbar a {
 	text-align: center;
 	text-decoration: none;
 }
