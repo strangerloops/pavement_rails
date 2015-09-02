@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	get '/' => 'static_pages#home'
   get '/contact' => 'static_pages#contact'
+  get '/map' => 'map#all_rides_adjusted_mean'
   
   get 'static_pages/home'
   get 'static_pages/contribute'
@@ -19,5 +20,4 @@ Rails.application.routes.draw do
   get 'map/last-adjusted' => 'map#last_ride_adjusted_mean'
 
   resources :readings, :rides
-
 end
