@@ -41,4 +41,9 @@ class MapController < ApplicationController
     @packets = adjusted_mean_packets_for Ride.find(params[:id])
     render :map
   end
+
+  def last_ride_adjusted_mean
+    @packets = adjusted_mean_packets_for Ride.last
+    render :map
+  end
 end

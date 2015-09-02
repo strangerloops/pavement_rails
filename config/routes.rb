@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'map/all-adjusted' => 'map#all_rides_adjusted_mean'
   get 'map/ride-adjusted/:id' => 'map#one_ride_adjusted_mean'
+  get 'map/last-adjusted' => 'map#last_ride_adjusted_mean'
 
   resources :readings, :rides
 
