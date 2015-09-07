@@ -3,6 +3,10 @@ class Reading < ActiveRecord::Base
 
 	belongs_to :ride
 
+  validates_numericality_of :ride_id
+  validates_presence_of :ride_id
+  validates_uniqueness_of :ride_id
+
 	def sd_packet
 		{
 			start_location: [start_lat,start_lon],
@@ -41,7 +45,11 @@ class Reading < ActiveRecord::Base
 	def mean_roughness_adjusted_for_speed
 		# pretty arbitrary right here would be nice to get an actual regression on speed v roughness
 		# just messed around w it until adjusted values on same pavement w diff speeds came p close
-		if speed > 4.0 then (get_mean_roughness / (((square(speed - 4.0)) / speed) + 1.0)) else get_mean_roughness end
+		if speed > 4.0 then
+      (get_mean_roughness / (((square(speed - 4.0)) / speed) + 1.0))
+    else
+        get_mean_roughness
+    end
 	end
 
 	def accel_as_array
@@ -59,7 +67,11 @@ class Reading < ActiveRecord::Base
 
 	def speed # meters per second
   	time = end_time - start_time
-  	distance_meters / time
+  	if time != 0
+      distance_meters / time
+    else
+      0
+    end
 	end
 end
 
