@@ -62,3 +62,20 @@ class Reading < ActiveRecord::Base
   	distance_meters / time
 	end
 end
+
+# == Schema Information
+#
+# Table name: readings
+#
+#  id           :integer          not null, primary key
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  start_lat    :float
+#  start_lon    :float
+#  end_lat      :float
+#  end_lon      :float
+#  acceleration :string
+#  ride_id      :integer
+#  start_time   :float
+#  end_time     :float
+#

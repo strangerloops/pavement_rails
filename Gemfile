@@ -48,5 +48,17 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Testing related
+  gem 'headless',           :group => [:test, :staging]
+  gem 'database_cleaner',   :group => [:test, :staging]
+  gem 'simplecov',          :require => false, :group => [:test, :staging]
+  gem 'rspec-rails',        :group => [:test, :staging]
+  gem 'rspec',              :group => [:test, :staging]
+  gem 'rspec-mocks',        :group => [:test, :staging]
+  gem 'cucumber-rails'    , :require => false, :group => [:test, :staging]
+  gem 'vcr'               , :group => [:test, :staging]
+  gem 'selenium-webdriver', :group => [:test, :staging]
+  gem 'capybara'          , :group => [:test, :staging]
 end
 
