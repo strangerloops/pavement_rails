@@ -15,4 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
-idea/*
+.idea/*
+coverage/*
