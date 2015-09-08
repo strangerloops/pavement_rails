@@ -18,7 +18,7 @@ describe Reading do
     it "has a ride id" do
       reading = Reading.new
       reading.valid?
-      expect(reading.errors.messages[:ride_id].length).to eq 3
+      expect(reading.errors.messages[:ride_id].length).to eq 2
     end
 
     it "has a numeric ride id" do
