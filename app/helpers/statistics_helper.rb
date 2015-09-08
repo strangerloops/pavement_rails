@@ -5,10 +5,13 @@ module StatisticsHelper
   end
 
 	def mean numbers
-  	sum(numbers) / numbers.length.to_f
+		sum = sum(numbers)
+    return nil if !sum
+    sum / numbers.length.to_f
 	end
 
 	def sample_variance numbers
+    return nil if numbers.length == 1
 	  m = mean numbers
 	  sum = numbers.inject(0) {|accum, i| accum +(i-m)**2 }
 	  sum / (numbers.length - 1).to_f

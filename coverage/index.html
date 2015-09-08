@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-07T18:39:04-04:00">2015-09-07T18:39:04-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-07T20:03:42-04:00">2015-09-07T20:03:42-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">77.6%</span></span>
+    (<span class="covered_percent"><span class="red">78.91%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.8
+         0.83
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>17</b> files in total.
-    <b>125</b> relevant lines. 
-    <span class="green"><b>97</b> lines covered</span> and
-    <span class="red"><b>28</b> lines missed </span>
+    <b>128</b> relevant lines. 
+    <span class="green"><b>101</b> lines covered</span> and
+    <span class="red"><b>27</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#3b713714b980f35cead42eddde7b5b4308ef6c68" class="src_link" title="app/helpers/statistics_helper.rb">app/helpers/statistics_helper.rb</a></td>
-        <td class="red strong">46.15 %</td>
-        <td>24</td>
-        <td>13</td>
+        <td class="red strong">62.5 %</td>
+        <td>27</td>
+        <td>16</td>
+        <td>10</td>
         <td>6</td>
-        <td>7</td>
-        <td>0.5</td>
+        <td>0.8</td>
       </tr>
       
       <tr>
@@ -407,11 +407,11 @@
         <div class="source_table" id="3b713714b980f35cead42eddde7b5b4308ef6c68">
   <div class="header">
     <h3>app/helpers/statistics_helper.rb</h3>
-    <h4><span class="red">46.15 %</span> covered</h4>
+    <h4><span class="red">62.5 %</span> covered</h4>
     <div>
-      <b>13</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>16</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
   </div>
   
@@ -436,8 +436,8 @@
           <code class="ruby">	def sum numbers</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="4">
-          
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
           
           <code class="ruby">    numbers.reduce(&amp;:+)</code>
         </li>
@@ -460,103 +460,121 @@
           <code class="ruby">	def mean numbers</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  	sum(numbers) / numbers.length.to_f</code>
+          <code class="ruby">		sum = sum(numbers)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return nil if !sum</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="10">
+          
+          
+          <code class="ruby">    sum / numbers.length.to_f</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">	def sample_variance numbers</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return nil if numbers.length == 1</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
           <code class="ruby">	  m = mean numbers</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
           <code class="ruby">	  sum = numbers.inject(0) {|accum, i| accum +(i-m)**2 }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
           <code class="ruby">	  sum / (numbers.length - 1).to_f</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def standard_deviation numbers</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
-          
-          <code class="ruby">	  Math.sqrt(sample_variance(numbers))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">	def square number</code>
+          <code class="ruby">	def standard_deviation numbers</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">		number * number</code>
+          <code class="ruby">	  Math.sqrt(sample_variance(numbers))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def square number</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">		number * number</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">end</code>
