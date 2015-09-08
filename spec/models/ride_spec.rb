@@ -1,16 +1,19 @@
 require 'spec_helper'
+include MapHelper
 
 describe Ride do
   before(:each) do
     @valid_attributes = {
-        :start_time => Time.now,
-        :end_time => Time.now,
-        :start_lat => 1.0,
-        :start_lon => 1.0,
-        :end_lat => 2.0,
-        :end_lon => 2.0,
-        :ride_id => 1,
-        :acceleration => 1
+    }
+
+    @reading_attributes = {
+       :start_lat => 1,
+       :start_lon => 1,
+       :end_lat => 1,
+       :end_lon => 1,
+       :acceleration => "4",
+       :start_time => Time.now,
+       :end_time => Time.now
     }
   end
 
@@ -22,6 +25,12 @@ describe Ride do
   end
 
   describe "logic" do
+    # it "returns mean packets when there are multiple readings" do
+    #   ride = Ride.create @valid_attributes
+    #   ride.readings << Reading.create!(@reading_attributes.merge(:ride_id => ride.id))
+    #   ride.reload
+    #   expect(sd_packets_for ride).to eq 1
+    # end
   end
 end
 

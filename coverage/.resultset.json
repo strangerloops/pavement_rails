@@ -408,12 +408,15 @@
       ],
       "/Users/ThoughtWorks/Documents/projects/mike-stuff/pavement_rails/spec/models/ride_spec.rb": [
         1,
+        1,
         null,
         1,
         1,
         1,
         null,
         null,
+        1,
+        null,
         null,
         null,
         null,
@@ -431,6 +434,12 @@
         null,
         null,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -469,6 +478,6 @@
         null
       ]
     },
-    "timestamp": 1441673948
+    "timestamp": 1441682185
   }
 }
