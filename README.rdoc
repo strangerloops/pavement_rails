@@ -1,0 +1,7 @@
+== Project Pavement
+
+Measuring and visualizing pavement quality with a bicycle and an iPhone.
+
+An instance is running at https://project-pavement.herokuapp.com/.
+
+Check out the open issues to contribute!
