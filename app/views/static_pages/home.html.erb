@@ -8,14 +8,21 @@
 		<p>The objective of Project Pavement is to give city-dwelling cyclists the data they need to plan safe and enjoyable routes as well as to make transparent to urban planners the condition and popularity of streets as bike routes.</p>
 
 		<p>Check out the map and start contributing today!</p>
+		<br/>
 	</div>
 	<div class="container">
 		<div class="row">
 			<span class="col-xs-6">
-				<%= link_to(image_tag("scc-logo.jpg", size: '200x200', :class => 'center-block'), 'http://www.smartchicagocollaborative.org/') %>
+				<figure>
+					<%= link_to(image_tag("scc-logo.jpg", size: '200x200', :class => 'center-block'), 'http://www.smartchicagocollaborative.org/') %>
+					<figcaption>funded with grace by Smart Chicago Collaborative</figcaption>
+				</figure>
 			</span>
-			<span class="col-xs-6">
-				<%= link_to(image_tag("chn-logo.png", size: '200x200', :class => 'center-block'), 'http://chihacknight.org/') %>
+			<span class="col-xs-2">
+				<figure>
+					<%= link_to(image_tag("chn-logo.png", size: '200x200', :class => 'center-block'), 'http://chihacknight.org/') %>
+					<figcaption>built at Chi Hack Night</figcaption>
+				</figure>
 			</span>
 		</div>
 	</div>
