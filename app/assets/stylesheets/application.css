@@ -26,6 +26,7 @@ figure {
 }
 
 h1 a {
+	color: black;
 	text-decoration: none;
 	font-family: 'Raleway', sans-serif;
 }
@@ -51,7 +52,7 @@ h1 a {
 }
 
 .copy {
-	font-family: 'Source Sans Pro', sans-serif;	
+	font-family: 'Raleway', sans-serif;	
 }
 
 #header a:hover {
