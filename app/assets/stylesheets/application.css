@@ -46,8 +46,13 @@
 	color: white;
 }
 
-* {
-  /*color: black;*/
+#links a {
+	text-align: center;
+	text-decoration: none;
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16;
 }
 
 figure {
@@ -59,14 +64,6 @@ figure {
 h1 a {
 	color: black;
 	text-decoration: none;
-	font-family: 'Raleway', sans-serif;
-}
-
-#links a {
-	text-align: center;
-	text-decoration: none;
-	padding-left: 1.2em;
-	padding-right: 1.2em;
 	font-family: 'Raleway', sans-serif;
 }
 
