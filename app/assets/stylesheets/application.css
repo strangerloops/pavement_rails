@@ -65,6 +65,10 @@ figure {
   width: min-content;
 }
 
+figcaption {
+	font-family: 'Raleway', sans-serif;
+}
+
 h1 a {
 	color: black;
 	text-decoration: none;
