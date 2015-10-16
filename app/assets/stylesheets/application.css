@@ -19,6 +19,12 @@
   color: black;
 }
 
+figure {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
 h1 a {
 	text-decoration: none;
 	font-family: 'Raleway', sans-serif;
