@@ -55,6 +55,10 @@
 	font-size: 16;
 }
 
+.container {
+	padding-top: 1%;
+}
+
 figure {
   width: -webkit-min-content;
   width: -moz-min-content;
