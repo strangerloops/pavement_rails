@@ -14,13 +14,15 @@
 		<div class="row">
 			<span class="col-xs-4 col-xs-offset-2 text-center">
 				<figure>
-					<%= link_to(image_tag("chn-logo-greyscale.png", size: '200x200', :class => 'center-block pull-left'), 'http://chihacknight.org/', :class => 'hacknight') %>
+
+					<a href="http://chihacknight.org/"><img src="<%= image_path('chn-logo-greyscale.png') %>" height="200" width="200" class="center-block pull-left" onmouseover="this.src='<%= image_path('chn-logo.png') %>'" onmouseout="this.src='<%= image_path('chn-logo-greyscale.png') %>'"/></a>
+
 					<figcaption>built at Chi Hack Night</figcaption>
 				</figure>
 			</span>
 			<span class="col-xs-4 text-center">
 				<figure>
-					<%= link_to(image_tag("scc-logo-greyscale.png", size: '200x200', :class => 'center-block pull-right'), 'http://www.smartchicagocollaborative.org/', :class => 'smartchicago') %>
+					<a href="http://www.smartchicagocollaborative.org/"><img src="<%= image_path('scc-logo-greyscale.png') %>" height="200" width="200" class="center-block pull-right" onmouseover="this.src='<%= image_path('scc-logo.jpg') %>'" onmouseout="this.src='<%= image_path('scc-logo-greyscale.png') %>'"/></a>
 					<figcaption>funded with grace by Smart Chicago Collaborative</figcaption>
 				</figure>
 			</span>
