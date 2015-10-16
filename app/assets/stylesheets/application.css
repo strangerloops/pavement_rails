@@ -60,9 +60,9 @@ h1 a {
 }
 
 .hacknight:hover {
-	background-image: url('chn-logo.png');
+	background-image: url('images/chn-logo.png');
 }
 
 .smartchicago:hover {
-	background-image: url('scc-logo.jpg');
+	background-image: url('images/scc-logo.jpg');
 }
