@@ -23,6 +23,10 @@
 	color: white;
 }
 
+#header a {
+	color: white;
+}
+
 #navbar {
 	text-align: center;
 	text-decoration: none;
