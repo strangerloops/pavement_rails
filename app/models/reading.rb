@@ -35,7 +35,7 @@ class Reading < ActiveRecord::Base
 	end
 
 	def get_mean_roughness
-		mean(acceleration_g.map do |g| g.abs - 1.0 end)
+		mean(acceleration_g.map do |g| (g - 1.0).abs end)
 	end
 
 	def distance_meters
