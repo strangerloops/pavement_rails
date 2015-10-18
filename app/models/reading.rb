@@ -22,8 +22,20 @@ class Reading < ActiveRecord::Base
 		}
 	end
 
+	def mean_packet
+		{
+			start_location: [start_lat,start_lon],
+			end_location: [end_lat,end_lon],
+			roughness: get_mean_roughness
+		}
+	end
+
 	def get_sd_roughness
 		standard_deviation acceleration_g
+	end
+
+	def get_mean_roughness
+		mean(acceleration_g.map(&:abs))
 	end
 
 	def distance_meters
