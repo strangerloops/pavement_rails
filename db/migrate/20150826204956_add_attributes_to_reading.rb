@@ -7,6 +7,8 @@ class AddAttributesToReading < ActiveRecord::Migration
   	add_column :readings, :acceleration_x, :string
   	add_column :readings, :acceleration_y, :string
   	add_column :readings, :acceleration_z, :string
-  	add_column :readings, :acceleration_g, :string
+  	add_column :readings, :angle_x, :float
+    add_column :readings, :angle_y, :float
+    add_column :readings, :angle_z, :float
   end
 end

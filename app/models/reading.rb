@@ -5,41 +5,20 @@ class Reading < ActiveRecord::Base
 	serialize :acceleration_x
 	serialize :acceleration_y
 	serialize :acceleration_z
-	serialize :acceleration_g
+
+	def acceleration_g
+		acceleration_x.each_with_index.map do |x, index|
+			y = acceleration_y[index]
+			z = acceleration_z[index]
+			(Math.cos(angle_x) * x) + (Math.cos(angle_y) * y) + (Math.cos(angle_z) * z)
+		end
+	end
 
 	def sd_packet
 		{
 			start_location: [start_lat,start_lon],
 			end_location: [end_lat,end_lon],
 			roughness: get_sd_roughness
-			# speed: get_speed
-		}
-	end
-
-	def mean_packet
-		{
-			start_location: [start_lat,start_lon],
-			end_location: [end_lat,end_lon],
-			roughness: get_mean_roughness
-			# speed: get_speed
-		}
-	end
-
-	def adjusted_mean_packet
-		{
-			start_location: [start_lat,start_lon],
-			end_location: [end_lat,end_lon],
-			roughness: mean_roughness_adjusted_for_speed
-			# speed: get_speed
-		}
-	end
-
-	def mean_packet_plus_speed
-		{
-			start_location: [start_lat,start_lon],
-			end_location: [end_lat,end_lon],
-			roughness: get_mean_roughness,
-			speed: speed
 		}
 	end
 
@@ -47,26 +26,12 @@ class Reading < ActiveRecord::Base
 		standard_deviation acceleration_g
 	end
 
-	def get_mean_roughness
-		mean acceleration_g.map(&:magnitude)
-	end
-
-	def mean_roughness_adjusted_for_speed
-		# pretty arbitrary right here would be nice to get an actual regression on speed v roughness
-		# just messed around w it until adjusted values on same pavement w diff speeds came p close
-		if speed > 4.0 then (get_mean_roughness / (((square(speed - 4.0)) / speed) + 1.0)) else get_mean_roughness end
-	end
-
-	def has_accel?
-		!acceleration_g.empty?
-	end
-
 	def distance_meters
 		GeoDistance.default_algorithm = :haversine
   	GeoDistance.distance(start_lat, start_lon, end_lat, end_lon).meters.number
 	end
 
-	def speed # meters per second
+	def speed # meters per second # wait isnt this milliseconds
   	time = end_time - start_time
   	distance_meters / time
 	end

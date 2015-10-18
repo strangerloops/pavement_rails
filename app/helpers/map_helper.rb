@@ -18,9 +18,7 @@ module MapHelper
 	end
 
 	def readings_for ride
-		Reading.where(ride_id: ride.id).select do |reading|
-  		reading.has_accel?
-  	end
+		Reading.where(ride_id: ride.id)
 	end
 
 	def mean_packets_with_speed_for ride

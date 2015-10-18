@@ -20,11 +20,10 @@ class ReadingsController < ApplicationController
 
 	protected
 	def reading_params
-		params.require(:reading).permit(:start_time, :end_time, :start_lat, :start_lon, :end_lat, :end_lon, :ride_id, :acceleration_x, :acceleration_y, :acceleration_z, :acceleration_g).tap do |whitelisted|
+		params.require(:reading).permit(:start_time, :end_time, :start_lat, :start_lon, :end_lat, :end_lon, :ride_id, :acceleration_x, :acceleration_y, :acceleration_z, :angle_x, :angle_y, :angle_z).tap do |whitelisted|
     	whitelisted[:acceleration_x] = params[:reading][:acceleration_x]
     	whitelisted[:acceleration_y] = params[:reading][:acceleration_y]
     	whitelisted[:acceleration_z] = params[:reading][:acceleration_z]
-    	whitelisted[:acceleration_g] = params[:reading][:acceleration_g]
     end
   end
 end
