@@ -19,10 +19,8 @@ class ReadingsController < ApplicationController
 	end
 
 	def export_to_json
-		@readings = Reading.find(:all)
-  	send_data @readings.to_json,
-    :type => 'text/xml; charset=UTF-8;',
-    :disposition => "attachment; filename=readings.json"
+		@readings = Reading.all
+  	send_data @readings.to_json, :type => 'text/xml; charset=UTF-8;', :disposition => "attachment; filename=readings.json"
 	end
 
 	protected
