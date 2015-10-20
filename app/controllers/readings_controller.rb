@@ -22,7 +22,7 @@ class ReadingsController < ApplicationController
 		@readings = Entry.find(:all)
   	send_data @readings.to_json,
     :type => 'text/xml; charset=UTF-8;',
-    :disposition => "attachment; filename=entries.xml"
+    :disposition => "attachment; filename=readings.json"
 	end
 
 	protected
