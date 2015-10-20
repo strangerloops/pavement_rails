@@ -18,6 +18,13 @@ class ReadingsController < ApplicationController
 		end
 	end
 
+	def export_to_json
+		@readings = Entry.find(:all)
+  	send_data @readings.to_json,
+    :type => 'text/xml; charset=UTF-8;',
+    :disposition => "attachment; filename=entries.xml"
+	end
+
 	protected
 	def reading_params
 		params.require(:reading).permit(:start_time, :end_time, :start_lat, :start_lon, :end_lat, :end_lon, :ride_id, :acceleration_x, :acceleration_y, :acceleration_z, :angle_x, :angle_y, :angle_z).tap do |whitelisted|

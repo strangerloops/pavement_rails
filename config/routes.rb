@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 	get '/' => 'static_pages#home'
   get '/contact' => 'static_pages#contact'
   get '/contribute' => 'static_pages#contribute'
-  get '/dump' => 'static_pages#dump'
-
-
+  
+  get '/dump' => 'readings#export_to_json'
   
   get 'static_pages/home'
   get 'static_pages/contribute'
