@@ -19,7 +19,8 @@ class ReadingsController < ApplicationController
 	end
 
 	def export_to_json
-		@readings = Reading.all
+		target = File.join(Rails.root, 'cache', 'readings.json')
+		@readings = File.open(target, 'r')
   	send_data @readings.to_json, :type => 'text/xml; charset=UTF-8;', :disposition => "attachment; filename=readings.json"
 	end
 
