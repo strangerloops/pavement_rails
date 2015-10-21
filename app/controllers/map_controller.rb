@@ -16,7 +16,7 @@ class MapController < ApplicationController
   end
 
   def last_ride
-    @packets = sd_packets_for Ride.last
+    @packets = mean_packets_for Ride.last
     render :map
   end
 
