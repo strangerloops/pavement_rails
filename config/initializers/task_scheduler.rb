@@ -12,7 +12,7 @@ end
 zip_scheduler.every day, :first_in => 0.1 do
 	# zip it all up
 	readings = Reading.all.to_json
-	File.open(File.join(Rails.root, 'cache', 'readings.json'), 'w+') do |f|
+	File.open(File.join(Rails.root, 'cache', 'readings.txt'), 'w+') do |f|
 		f.write readings
 	end
 end
