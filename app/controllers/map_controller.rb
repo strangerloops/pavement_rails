@@ -10,7 +10,9 @@ class MapController < ApplicationController
 
   def all_mean
     @packets = Ride.all.map do |ride|
-      mean_packets_for ride
+      ride.readings.map do |reading|
+        reading.mean_g
+      end
     end.reduce(&:+)
     render :map
   end
