@@ -26,7 +26,7 @@ class Reading < ActiveRecord::Base
 		{
 			start_location: [start_lat,start_lon],
 			end_location: [end_lat,end_lon],
-			roughness: get_mean_roughness
+			roughness: mean_g
 		}
 	end
 

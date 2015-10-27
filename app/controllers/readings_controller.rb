@@ -1,7 +1,9 @@
 class ReadingsController < ApplicationController
+	include StatisticsHelper
 
 	def create
 		@reading = Reading.new(reading_params)
+		@reading.mean_g = @reading.get_mean_roughness
 		respond_to do |format|
 			if @reading.save
 				format.json { render :json => @reading.to_json, :status => :created, :location => @reading }
