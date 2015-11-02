@@ -9,11 +9,7 @@ class MapController < ApplicationController
   end
 
   def all_mean
-    @packets = Ride.all.map do |ride|
-      ride.readings.map do |reading|
-        reading.mean_g
-      end
-    end.reduce(&:+)
+    @packets = File.read(File.join(Rails.root, 'cache/mean_packets.txt'))
     render :map
   end
 
