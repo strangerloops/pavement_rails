@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/contact' => 'static_pages#contact'
   get '/contribute' => 'static_pages#contribute'
   
-  get '/dump' => 'readings#export_to_json'
+  get '/dump' => 'static_pages#dump'
   
   get 'static_pages/home'
   get 'static_pages/contribute'
