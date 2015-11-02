@@ -1,12 +1,12 @@
 keep_alive_scheduler = Rufus::Scheduler.new
 zip_scheduler = Rufus::Scheduler.new
 
-seconds_per_day = 60 * 60 * 24
-day = "#{seconds_per_day}s"
-five_seconds = "5s"
+day = "#{60 * 60 * 24}s"
+four_minutes = "#{4 * 60}s"
 
-keep_alive_scheduler.every five_seconds, :first_in => 0.1 do
-	# ping '/'
+keep_alive_scheduler.every four_minutes, :first_in => 0.1 do
+  p Net::HTTP.get(URI.parse(URI.encode("https://project-pavement.herokuapp.com/")))
+  p Time.now.inspect
 end
 
 zip_scheduler.every day, :first_in => 160.0 do
