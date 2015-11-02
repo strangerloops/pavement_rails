@@ -11,7 +11,7 @@ keep_alive_scheduler.every four_minutes, :first_in => 0.1 do
   p Time.now.inspect
 end
 
-zip_scheduler.every day, :first_in => 160.0 do
+zip_scheduler.every day, :first_in => 12.0 do
 	
 	p 'writing cache...'
 	readings = Reading.all.to_json
@@ -26,5 +26,5 @@ zip_scheduler.every day, :first_in => 160.0 do
 		f.write packets
 	end
 	p 'done with packets.'
-	
+
 end
