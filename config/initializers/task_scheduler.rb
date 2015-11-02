@@ -16,4 +16,5 @@ zip_scheduler.every day, :first_in => 160.0 do
 	File.open(File.join(Rails.root, 'cache', 'readings.txt'), 'w+') do |f|
 		f.write readings
 	end
+	p 'all done.'
 end
