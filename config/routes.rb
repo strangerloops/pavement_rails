@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'static_pages/contribute'
   get 'static_pages/contact'
 
-  get '/map' => 'map#all_sd'
+  get '/map' => 'map#all_mean'
   get '/map/sd' => 'map#all_sd'
   get '/map/mean' => 'map#all_mean'
 

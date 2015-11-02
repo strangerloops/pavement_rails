@@ -21,7 +21,7 @@ zip_scheduler.every day, :first_in => 12.0 do
 	p 'done with readings.'
 
 	p 'writing mean packets...'
-	packets = Reading.all.map do |r| r.mean_packet end
+	packets = Reading.all.map do |r| r.mean_packet end.to_json
 	File.open(File.join(Rails.root, 'cache', 'mean_packets.txt'), 'w+') do |f|
 		f.write packets
 	end
