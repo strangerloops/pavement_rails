@@ -9,6 +9,6 @@ class StaticPagesController < ApplicationController
   end
 
   def dump
-  	render plain: File.read(File.join(Rails.root, 'cache/readings.txt')
+  	render plain: File.read(File.join(Rails.root, 'cache/readings.txt'))
   end
 end
