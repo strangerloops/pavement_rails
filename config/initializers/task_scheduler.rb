@@ -1,3 +1,5 @@
+require 'net/http'
+
 keep_alive_scheduler = Rufus::Scheduler.new
 zip_scheduler = Rufus::Scheduler.new
 
