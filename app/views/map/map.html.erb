@@ -7,7 +7,7 @@
 			}).addTo(Window.map);
 			var packets = <%= @packets.to_json.html_safe %>;
 
-			packets.forEach(function(packet){
+			JSON.parse(packets).forEach(function(packet){
 				var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
 				var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
 				var points = [start, end];
