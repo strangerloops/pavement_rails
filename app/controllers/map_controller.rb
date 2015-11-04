@@ -8,14 +8,14 @@ class MapController < ApplicationController
   def last_ride
     @packets = Ride.last.readings.map do |reading|
       reading.mean_packet
-    end.inspect
+    end.to_json
     render :map
   end
 
   def one_ride
   	@packets = Ride.find(params[:id]).readings.map do |reading|
       reading.mean_packet
-    end.inspect
+    end.to_json
     render :map
   end
 end
