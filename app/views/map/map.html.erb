@@ -3,13 +3,13 @@
 	  window.onload = function () {
 	  	Window.map = L.map('map').setView([41.908323,-87.633069], 15);
 	  	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    		attribution: ' <a href="https://github.com/strangerloops/pavement">Project Pavement</a> | &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    		attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(Window.map);
 			var packets = <%= @packets.to_json.html_safe %>;
 
-			JSON.parse(packets).forEach(function(packet){
+			packets.forEach(function(packet){
 				var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
-				var end   = new L.LatLng(packet['end_location'][0], packet['end_location'][1]);
+				var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
 				var points = [start, end];
 				var roughness = packet['roughness'];
 				var red = (roughness * 250) % 255;
@@ -20,7 +20,7 @@
 	    		color: color,
 	    		weight: 10,
 	    		opacity: 0.4 + (roughness * 2),
-	    		smoothFactor: 1
+	    		smoothFactor: 0
 	    	});
   	  	Window.map.addLayer(poly);
 			});

@@ -6,7 +6,7 @@ zip_scheduler = Rufus::Scheduler.new
 day = "#{60 * 60 * 24}s"
 four_minutes = "#{4 * 60}s"
 
-keep_alive_scheduler.every four_minutes, :first_in => 0.1 do
+keep_alive_scheduler.every four_minutes, :first_in => 1.0 do
   p 'stayin alive'
   p Time.now.inspect
 end
@@ -26,5 +26,4 @@ zip_scheduler.every day, :first_in => 12.0 do
 		f.write packets
 	end
 	p 'done with packets.'
-
 end

@@ -1,25 +1,21 @@
 class MapController < ApplicationController
-  include MapHelper
-
-  def all_sd
-    @packets = Ride.all.map do |ride|
-      sd_packets_for ride
-    end.reduce(&:+)
-    render :map
-  end
-
+  
   def all_mean
     @packets = File.read(File.join(Rails.root, 'cache/mean_packets.txt'))
     render :map
   end
 
   def last_ride
-    @packets = mean_packets_for Ride.last
+    @packets = Ride.last.readings.map do |reading|
+      reading.mean_packet
+    end
     render :map
   end
 
   def one_ride
-  	@packets = mean_packets_for Ride.find(params[:id])
+  	@packets = Ride.find(params[:id]).readings.map do |reading|
+      reading.mean_packet
+    end
     render :map
   end
 end
