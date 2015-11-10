@@ -45,10 +45,10 @@ def cache_scoreboard
 	# put the scoreboard in the DB? how else to serialize it?
 
 	# pluck here?
-	highest_id = Ride.all.map do |ride| ride.device_id end.max
-	1.upto highest_id do |id|
-		Ride.find(id).distance
-	end
+	# highest_id = Ride.all.map do |ride| ride.device_id end.max
+	# 1.upto highest_id do |id|
+	# 	Ride.find(id).distance
+	# end
 end
 
 
