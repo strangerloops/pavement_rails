@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'map/ride/:id' => 'map#one_ride'
 
   # trim
-  post '/rides/:id/trim', => 'rides#trim'
+  post '/rides/:id/trim' => 'rides#trim'
 
   resources :readings, :rides
 end
