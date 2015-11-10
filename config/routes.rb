@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   get 'map/last' => 'map#last_ride'
   get 'map/ride/:id' => 'map#one_ride'
 
+  # trim
+  post '/rides/:id/trim', => 'rides#trim'
+
   resources :readings, :rides
 end

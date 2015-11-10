@@ -29,6 +29,17 @@ class RidesController < ApplicationController
 		end
 	end
 
+	def trim
+		p "trimming ride #{params[:id]}"
+		# respond_to do |format|
+		# 	if Ride.find(params[:id]).trim
+		# 		format.json { head :ok }
+		# 	else
+		# 		format.json { render :plain => 'Error trimming.', :status => :unprocessable_entity }
+		# 	end
+		# end
+	end
+
 	protected
 	def ride_params
 		params.require(:ride).permit(:start_time, :end_time, :device_id)
