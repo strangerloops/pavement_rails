@@ -31,8 +31,7 @@ class RidesController < ApplicationController
 
 	def trim
 		respond_to do |format|
-			if true # Ride.find(params[:id]).trim
-				p "did trim for ride #{params[:id]}"
+			if Ride.find(params[:id]).trim
 				format.json { head :ok }
 			else
 				format.json { render :plain => 'Error trimming.', :status => :unprocessable_entity }

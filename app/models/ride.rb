@@ -1,4 +1,5 @@
 class Ride < ActiveRecord::Base
+
 	has_many :readings, dependent: :destroy
 
 	def trim
@@ -9,5 +10,9 @@ class Ride < ActiveRecord::Base
 		(front + back).each do |reading|
 			reading.destroy
 		end
+	end
+
+	def distance_meters
+		readings.map { |reading| reading.distance_meters }.reduce(:+)
 	end
 end

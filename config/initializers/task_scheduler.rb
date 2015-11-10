@@ -44,11 +44,9 @@ def cache_scoreboard
 	# sort an array of all device IDs by 
 	# put the scoreboard in the DB? how else to serialize it?
 
-	# pluck here?
-	# highest_id = Ride.all.map do |ride| ride.device_id end.max
-	# 1.upto highest_id do |id|
-	# 	Ride.find(id).distance
-	# end
+	ride_ids = Ride.pluck(:device_id)
+	p '********************** scoreboard:'
+	p ride_ids.sort do |i, j| Ride.find(i).distance_meters <=> Ride.find(j).distance_meters end
 end
 
 
