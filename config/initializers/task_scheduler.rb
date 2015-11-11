@@ -41,15 +41,13 @@ def cache_mean_packets
 end
 
 def cache_scoreboard
-	# sort an array of all device IDs by 
-	# put the scoreboard in the DB? how else to serialize it?
 
 	ride_ids = Ride.pluck(:device_id)
 	p '********************** scoreboard:'
 	p ride_ids.sort do |i, j|
-		Ride.where(:device_id: i).map do |r|
+		Ride.where(device_id: i).map do |r|
 			r.distance_meters
-		end.reduce(&:+) <=> Ride.where(:device_id: j).map do |r|
+		end.reduce(&:+) <=> Ride.where(device_id: j).map do |r|
 			r.distance_meters
 		end.reduce(&:+)
 	end
