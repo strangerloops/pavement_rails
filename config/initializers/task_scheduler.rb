@@ -44,13 +44,13 @@ def cache_scoreboard
 
 	ride_ids = Ride.pluck(:device_id).uniq
 	p '********************** scoreboard:'
-	p ride_ids.sort do |i, j|
-		(Ride.where(device_id: i).map do |r|
- 			r.distance_meters
- 		end.reduce(&:+)) <=> (Ride.where(device_id: j).map do |r|
-			r.distance_meters
-		end.reduce(&:+))
-	end
+	p (ride_ids.sort do |i, j|
+			(Ride.where(device_id: i).map do |r|
+	 			r.distance_meters
+	 		end.reduce(&:+)) <=> (Ride.where(device_id: j).map do |r|
+				r.distance_meters
+			end.reduce(&:+))
+		end)
 end
 
 
