@@ -49,7 +49,7 @@ def cache_scoreboard
 			end.reduce(&:+))
 		end.reverse
 
-	scoreboard = Scoreboard.where(description: 'global').first || Scoreboard.new('global')
+	scoreboard = Scoreboard.where(description: 'global').first || Scoreboard.new(description: 'global')
 	scoreboard.rankings = rankings
 	scoreboard.save
 end
