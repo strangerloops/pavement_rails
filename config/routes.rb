@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'map/last' => 'map#last_ride'
   get 'map/ride/:id' => 'map#one_ride'
 
+  # scoreboards
+  get '/scoreboards/rank/:id' => 'scoreboards#rank'
+
   # trim
   post '/rides/:id/trim' => 'rides#trim'
 

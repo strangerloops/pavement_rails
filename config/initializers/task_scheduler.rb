@@ -53,14 +53,3 @@ def cache_scoreboard
 	scoreboard.rankings = rankings
 	scoreboard.save
 end
-
-
-
-
-
-
-
-
-
-
-
