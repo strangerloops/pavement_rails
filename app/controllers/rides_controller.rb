@@ -1,5 +1,7 @@
 class RidesController < ApplicationController
 
+	before_filter :authenticate, except: :show
+	
 	def create
 		@ride = Ride.new(ride_params)
 		respond_to do |format|
