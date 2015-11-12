@@ -1,5 +1,6 @@
 class ReadingsController < ApplicationController
 	include StatisticsHelper
+	before_filter :authenticate, except: :show
 
 	def create
 		@reading = Reading.new(reading_params)
