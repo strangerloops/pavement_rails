@@ -41,10 +41,10 @@ def cache_mean_packets
 end
 
 def cache_scoreboard
-	rankings = Ride.pluck(:device_id).uniq.sort do |i, j|
-			(Ride.where(device_id: i).map do |r|
+	rankings = Ride.pluck(:scoreboard_id).uniq.sort do |i, j|
+			(Ride.where(scoreboard_id: i).map do |r|
 	 			r.distance_meters
-	 		end.reduce(&:+)) <=> (Ride.where(device_id: j).map do |r|
+	 		end.reduce(&:+)) <=> (Ride.where(scoreboard_id: j).map do |r|
 				r.distance_meters
 			end.reduce(&:+))
 		end.reverse
