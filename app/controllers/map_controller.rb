@@ -21,7 +21,7 @@ class MapController < ApplicationController
 
   def all_new_york
     @packets = Ride.all.select do |r|
-      r.in_nyc?
+      r.nyc?
     end.to_json
     render :map
   end
