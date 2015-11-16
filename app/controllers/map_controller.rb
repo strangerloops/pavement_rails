@@ -22,6 +22,8 @@ class MapController < ApplicationController
   def all_new_york
     @packets = Ride.all.select do |r|
       r.nyc?
+    end.map do |reading|
+      reading.mean_packet
     end.to_json
     render :map
   end
