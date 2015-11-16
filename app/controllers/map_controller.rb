@@ -25,8 +25,8 @@ class MapController < ApplicationController
     end.map do |ride|
       ride.readings.map do |reading|
         reading.mean_packet
-      end
-    end.to_json
+      end.to_json
+    end
     render :map
   end
 end
