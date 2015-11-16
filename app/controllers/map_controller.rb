@@ -18,4 +18,11 @@ class MapController < ApplicationController
     end.to_json
     render :map
   end
+
+  def all_new_york
+    @packets = Ride.all.select do |r|
+      r.in_nyc?
+    end.to_json
+    render :map
+  end
 end

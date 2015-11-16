@@ -1,5 +1,7 @@
 class Ride < ActiveRecord::Base
 
+	include GeographyHelper
+
 	has_many :readings, dependent: :destroy
 
 	def trim
@@ -14,5 +16,10 @@ class Ride < ActiveRecord::Base
 
 	def distance_meters
 		readings.map { |reading| reading.distance_meters }.reduce(:+)
+	end
+
+	def in_nyc?
+		first_reading = readings.sort { |i, j| i.start_time <=> j.start_time }.first
+		in_nyc?(first_reading.start_lat, first_reading.start_lon)
 	end
 end
