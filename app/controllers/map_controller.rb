@@ -24,7 +24,7 @@ class MapController < ApplicationController
       reading.nyc?
     end.map do |reading|
       reading.mean_packet
-    end
+    end.to_json
     render :map
   end
 end
