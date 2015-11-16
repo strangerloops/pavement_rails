@@ -1,5 +1,6 @@
 class Reading < ActiveRecord::Base
 	include StatisticsHelper
+	include GeographyHelper
 
 	belongs_to :ride
 	serialize :acceleration_x
@@ -41,6 +42,10 @@ class Reading < ActiveRecord::Base
 	def distance_meters
 		GeoDistance.default_algorithm = :haversine
   	GeoDistance.distance(start_lat, start_lon, end_lat, end_lon).meters.number
+	end
+
+	def nyc?
+		in_nyc?(start_lat, start_lon)
 	end
 
 	def speed # meters per second
