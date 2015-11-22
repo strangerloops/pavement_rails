@@ -48,6 +48,10 @@ class Reading < ActiveRecord::Base
 		in_nyc?(start_lat, start_lon)
 	end
 
+	def chicago?
+		in_chicago?(start_lat, start_lon)
+	end
+
 	def speed # meters per second
   	time = end_time - start_time
   	distance_meters / time

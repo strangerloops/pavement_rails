@@ -1,17 +1,22 @@
 module GeographyHelper
 
-	def in_nyc?(lat, lon)
-		lat < nyc_bounding_box[:max_lat] &&
-		lat > nyc_bounding_box[:min_lat] &&
-		lon < nyc_bounding_box[:max_lon] &&
-		lon > nyc_bounding_box[:min_lon]
+	def in_nyc? lat, lon
+		point_in_bounding_box? lat, lon, nyc_bounding_box
 	end
 
 	def in_chicago?(lat, lon)
-		lat < chicago_bounding_box[:max_lat] &&
-		lat > chicago_bounding_box[:min_lat] &&
-		lon < chicago_bounding_box[:max_lon] &&
-		lon > chicago_bounding_box[:min_lon]
+		point_in_bounding_box? lat, lon, chicago_bounding_box
+	end
+
+	def point_in_bounding_box? lat, lon, bounding_box
+		lat < bounding_box[:max_lat] &&
+		lat > bounding_box[:min_lat] &&
+		lon < bounding_box[:max_lon] &&
+		lon > bounding_box[:min_lon]
+	end
+
+	def midpoint lat1, lon1, lat2, lon2
+		[(lat1 + lat2) / 2, (lon1 + lon2) / 2]
 	end
 
 	def nyc_bounding_box
@@ -21,6 +26,14 @@ module GeographyHelper
 			max_lon: -73.700272,
 			min_lon: -74.259090
 		}
+	end
+
+	def nyc_center
+		[40.693817467738924, -73.92976999282837]
+	end
+
+	def chi_center
+		 [41.840675, -87.679365]
 	end
 
 	def chicago_bounding_box
