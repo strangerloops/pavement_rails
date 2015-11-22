@@ -27,22 +27,14 @@ class MapController < ApplicationController
   end
 
   def all_new_york
-    @packets = Reading.all.select do |reading|
-      reading.nyc?
-    end.map do |reading|
-      reading.mean_packet
-    end.to_json
+    @packets = File.read(File.join(Rails.root, 'cache/nyc.txt'))
     @coords = nyc_center
     @zoom = 15
     render :map
   end
 
   def all_chicago
-    @packets = Reading.all.select do |reading|
-      reading.chicago?
-    end.map do |reading|
-      reading.mean_packet
-    end.to_json
+    @packets = File.read(File.join(Rails.root, 'cache/chicago.txt'))
     @coords = chi_center
     @zoom = 15
     render :map

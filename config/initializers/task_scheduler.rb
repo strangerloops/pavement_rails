@@ -1,4 +1,5 @@
 require 'net/http'
+include GeographyHelper
 
 keep_alive_scheduler = Rufus::Scheduler.new
 daily_scheduler = Rufus::Scheduler.new
@@ -13,29 +14,29 @@ end
 
 daily_scheduler.every day, :first_in => 12.0 do
 
-	p 'caching readings...'
-	cache_readings
-	p 'done with readings.'
+	p 'caching chicago...'
+	cache_chicago
+	p 'done with chicago.'
 
-	p 'caching mean packets...'
-	cache_mean_packets
-	p 'done with packets.'
+	p 'caching new york...'
+	cache_nyc
+	p 'done with chicago.'
 
 	p 'caching scoreboard...'
 	cache_scoreboard
 	p 'done with scoreboard.'
 end
 
-def cache_readings
-	readings = Reading.all.to_json
-	File.open(File.join(Rails.root, 'cache', 'readings.txt'), 'w+') do |f|
-		f.write readings
+def cache_chicago
+	packets = Reading.all.select { |reading| in_chicago? reading.start_lat, reading.start_lon }.map do |r| r.mean_packet end.to_json
+	File.open(File.join(Rails.root, 'cache', 'chicago.txt'), 'w+') do |f|
+		f.write packets
 	end
 end
 
-def cache_mean_packets
-	packets = Reading.all.map do |r| r.mean_packet end.to_json
-	File.open(File.join(Rails.root, 'cache', 'mean_packets.txt'), 'w+') do |f|
+def cache_nyc
+	packets = Reading.all.select { |reading| in_nyc? reading.start_lat, reading.start_lon }.map do |r| r.mean_packet end.to_json
+	File.open(File.join(Rails.root, 'cache', 'nyc.txt'), 'w+') do |f|
 		f.write packets
 	end
 end
