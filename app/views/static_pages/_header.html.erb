@@ -3,6 +3,16 @@
 		<a href="/"><img src="<%= image_path('transparent-white-icon.png') %>" height="120" width="120"/></a>
 		<h1><a href="/">Project Pavement</a></h1> 
 		<div id="links">
+			<div class="dropdown">
+  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">map
+    			<span class="caret"></span>
+  			</button>
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="/map/chi">chicago</a></li>
+			    <li><a href="/map/nyc">new york</a></li>
+			    <li><a href="/map/other">other</a></li>
+			  </ul>
+			</div>
 			<a href="/map">map</a>•<a href="/contribute">contribute</a>•<a href="/contact">contact</a>•<a href="https://github.com/strangerloops/pavement">source code</a>
 		</div>
 	</div>
