@@ -94,6 +94,6 @@ h1 a {
 	background-color: rgb(102,227,182) !important;
 }
 
-.dropdown-menu a {
+.dropdown-menu > li > a {
 	text-align: left;
 }
