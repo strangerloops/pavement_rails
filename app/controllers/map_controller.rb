@@ -12,7 +12,7 @@ class MapController < ApplicationController
       reading.mean_packet
     end.to_json
     @coords = midpoint(readings.first.start_lat, readings.first.start_lon, readings.last.end_lat, readings.last.end_lon)
-    @zoom = 20
+    @zoom = 18
     render :map
   end
 
@@ -22,21 +22,21 @@ class MapController < ApplicationController
       reading.mean_packet
     end.to_json
     @coords = midpoint(readings.first.start_lat, readings.first.start_lon, readings.last.end_lat, readings.last.end_lon)
-    @zoom = 20
+    @zoom = 18
     render :map
   end
 
   def all_new_york
     @packets = File.read(File.join(Rails.root, 'cache/nyc.txt'))
     @coords = nyc_center
-    @zoom = 15
+    @zoom = 12
     render :map
   end
 
   def all_chicago
     @packets = File.read(File.join(Rails.root, 'cache/chicago.txt'))
     @coords = chi_center
-    @zoom = 15
+    @zoom = 12
     render :map
   end
 end
