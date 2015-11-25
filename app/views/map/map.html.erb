@@ -1,12 +1,14 @@
 <head>
 	<script type="text/javascript">
 	  window.onload = function () {
-	  	Window.map = L.map('map').setView(<%= @coords %>, <%= @zoom %>);
-	  	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    		attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			}).addTo(Window.map);
+	  	var map = L.map('map');
+	  	var layer = Tangram.leafletLayer({
+	  		scene: 'cinnabar-no-labels.yaml',
+	  		attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | <a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
+	  	});
+	  	layer.addTo(map);
+			map.setView(<%= @coords %>, <%= @zoom %>);
 			var packets = <%= @packets.to_json.html_safe %>;
-
 			JSON.parse(packets).forEach(function(packet){
 				var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
 				var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
@@ -22,7 +24,7 @@
 	    		opacity: 0.4 + (roughness * 2),
 	    		smoothFactor: 0
 	    	});
-  	  	Window.map.addLayer(poly);
+  	  	map.addLayer(poly);
 			});
 	  };
 	</script>
