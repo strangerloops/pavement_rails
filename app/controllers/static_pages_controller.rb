@@ -8,6 +8,9 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def use
+  end
+
   def dump
   	render plain: File.read(File.join(Rails.root, 'cache/readings.txt'))
   end
