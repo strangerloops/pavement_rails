@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 	get '/' => 'static_pages#home'
   get '/contact' => 'static_pages#contact'
   get '/support' => 'static_pages#contact'
-  get '/contribute' => 'static_pages#contribute'
   get '/use' => 'static_pages#use'
 
   # api
