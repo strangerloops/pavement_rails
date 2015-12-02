@@ -82,6 +82,11 @@ h1 a {
 	padding-bottom: 1%;
 }
 
+.big-copy {
+	font-family: 'Raleway', sans-serif;	
+	font-size: 36px;	
+}
+
 .hacknight:hover {
 	background-image: 'chn-logo.png';
 }
