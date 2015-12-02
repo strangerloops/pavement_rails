@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # static pages
 	get '/' => 'static_pages#home'
   get '/contact' => 'static_pages#contact'
+  get '/support' => 'static_pages#contact'
   get '/contribute' => 'static_pages#contribute'
   get '/dump' => 'static_pages#dump'
 
