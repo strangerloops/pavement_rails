@@ -36,6 +36,22 @@ module GeographyHelper
 		 [41.840675, -87.679365]
 	end
 
+	def chi_point
+		[41.9271, -87.7042]
+	end
+
+	def nyc_point
+		[40.723035, -73.91]
+	end
+
+	def chi_osrm
+		"http://162.243.23.60/osrm-chi-vanilla/viaroute"
+	end
+
+	def nyc_osrm
+		"http://162.243.23.60/osrm-nyc-vanilla/viaroute"
+	end
+
 	def chicago_bounding_box
 		{
 			max_lat: 42.07436,
