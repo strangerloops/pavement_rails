@@ -28,14 +28,18 @@ class MapController < ApplicationController
 
   def all_new_york
     @packets = File.read(File.join(Rails.root, 'cache/nyc.txt'))
+    @osrm_endpoint = nyc_osrm
     @coords = nyc_center
+    @other_coords = nyc_point
     @zoom = 12
     render :map
   end
 
   def all_chicago
     @packets = File.read(File.join(Rails.root, 'cache/chicago.txt'))
+    @osrm_endpoint = chi_osrm
     @coords = chi_center
+    @other_coords = chi_point
     @zoom = 12
     render :map
   end
