@@ -1,42 +1,43 @@
 <head>
-  <script type="text/javascript">
-    window.onload = function () {
-      var map = L.map('map');
-      var layer = Tangram.leafletLayer({
-        scene: "<%= asset_path 'cinnabar.yaml' %>",
-        attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | <a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
-      });
-      layer.addTo(map);
-      map.setView(<%= @coords %>, <%= @zoom %>);
-      var packets = <%= @packets.to_json.html_safe %>;
-      JSON.parse(packets).forEach(function(packet){
-        var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
-        var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
-        var points = [start, end];
-        var roughness = packet['roughness'];
-        var red = (roughness * 250) % 255;
-        var green = 0;
-        var blue = 255 - ((roughness * 250) % 255);
-        var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")"; 
-        var poly = new L.Polyline(points, {
-          color: color,
-          weight: 10,
-          opacity: 0.4 + (roughness * 2),
-          smoothFactor: 0
-        });
-        map.addLayer(poly);
-      });
-  </script>
+	<script type="text/javascript">
+	  window.onload = function () {
+	  	var map = L.map('map');
+	  	var layer = Tangram.leafletLayer({
+	  		scene: "<%= asset_path 'cinnabar.yaml' %>",
+	  		attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | <a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
+	  	});
+	  	layer.addTo(map);
+			map.setView(<%= @coords %>, <%= @zoom %>);
+			var packets = <%= @packets.to_json.html_safe %>;
+			JSON.parse(packets).forEach(function(packet){
+				var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
+				var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
+				var points = [start, end];
+				var roughness = packet['roughness'];
+				var red = (roughness * 250) % 255;
+				var green = 0;
+				var blue = 255 - ((roughness * 250) % 255);
+				var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")"; 
+		  	var poly = new L.Polyline(points, {
+	    		color: color,
+	    		weight: 10,
+	    		opacity: 0.4 + (roughness * 2),
+	    		smoothFactor: 0
+	    	});
+  	  	map.addLayer(poly);
+			});
+	  };
+	</script>
 </head>
 <body>
-  <div id="map">
-    <style>
-      #map{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-  </style>
-  </div>
+	<div id="map">
+		<style>
+			#map{
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  width: 100%;
+			}
+	</style>
+	</div>
 </body>

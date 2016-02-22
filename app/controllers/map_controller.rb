@@ -36,7 +36,6 @@ class MapController < ApplicationController
   def all_chicago
     @packets = File.read(File.join(Rails.root, 'cache/chicago.txt'))
     @coords = chi_center
-    @other_coords = [41.940675, -87.479365]
     @zoom = 12
     render :map
   end
