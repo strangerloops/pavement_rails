@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require bootstrap.min
- *= require leaflet-routing-machine
  */
 
 #header {

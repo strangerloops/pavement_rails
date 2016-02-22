@@ -17,7 +17,7 @@
 				var red = (roughness * 250) % 255;
 				var green = 0;
 				var blue = 255 - ((roughness * 250) % 255);
-				var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
+				var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")"; 
 		  	var poly = new L.Polyline(points, {
 	    		color: color,
 	    		weight: 10,
@@ -26,25 +26,6 @@
 	    	});
   	  	map.addLayer(poly);
 			});
-		var control = L.Routing.control(
-			{    waypoints: [
-			        L.latLng(41.8789, -87.6358),
-			        L.latLng(41.9271, -87.7042)
-			    ],
-			    routeWhileDragging: true,
-			    reverseWaypoints: true,
-			    showAlternatives: true,
-			    router: L.Routing.osrm({serviceUrl: 'http://162.243.23.60/osrm_chicago_vanilla/viaroute'}),
-			    altLineOptions: {
-			        styles: [
-			            {color: 'black', opacity: 0.15, weight: 9},
-			            {color: 'white', opacity: 0.8, weight: 6},
-			            {color: 'blue', opacity: 0.5, weight: 2}
-			        ]
-			    }
-			}).addTo(map);
-
-		L.Routing.errorControl(control).addTo(map);
 	  };
 	</script>
 </head>
