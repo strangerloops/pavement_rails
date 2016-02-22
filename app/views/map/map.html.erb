@@ -46,9 +46,7 @@
 }).addTo(map);
 
 L.Routing.errorControl(control).addTo(map);
-http://127.0.0.1:5000/nearest?loc=41.891177,-87.626700
-162.243.23.60/osrm_chicago_vanilla/nearest?loc=41.891177,-87.626700
-https://www.mapbox.com/blog/third-party-data-in-osrm/
+
 var control = L.Routing.control(
 {    waypoints: [
         <%= @coords %>,
