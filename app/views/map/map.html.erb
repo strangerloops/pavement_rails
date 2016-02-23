@@ -7,25 +7,6 @@
 	  		attribution: '<a href="https://github.com/strangerloops/pavement">Project Pavement</a> | <a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
 	  	});
 	  	layer.addTo(map);
-  		var control = L.Routing.control(
-			{    waypoints: [
-			        <%= @coords %>,
-			        <%= @other_coords %>
-			    ],
-			    routeWhileDragging: true,
-			    reverseWaypoints: true,
-			    showAlternatives: true,
-			    router: L.Routing.osrm({serviceUrl: '<%= @osrm_endpoint %>'}),
-			    altLineOptions: {
-			        styles: [
-			            {color: 'black', opacity: 0.15, weight: 9},
-			            {color: 'white', opacity: 0.8, weight: 6},
-			            {color: 'blue', opacity: 0.5, weight: 2}
-			        ]
-			    }
-			}).addTo(map);
-
-		L.Routing.errorControl(control).addTo(map);
 		map.setView(<%= @coords %>, <%= @zoom %>);
 			var packets = <%= @packets.to_json.html_safe %>;
 			JSON.parse(packets).forEach(function(packet){
@@ -45,6 +26,26 @@
 	    	});
   	  	map.addLayer(poly);
 			});
+  		var control = L.Routing.control(
+			{    waypoints: [
+			        <%= @coords %>,
+			        <%= @other_coords %>
+			    ],
+			    routeWhileDragging: true,
+			    reverseWaypoints: true,
+			    showAlternatives: true,
+			    router: L.Routing.osrm({serviceUrl: '<%= @osrm_endpoint %>'}),
+			    altLineOptions: {
+			        styles: [
+			            {color: 'black', opacity: 0.15, weight: 9},
+			            {color: 'white', opacity: 0.8, weight: 6},
+			            {color: 'blue', opacity: 0.5, weight: 2}
+			        ]
+			    }
+			}).addTo(map);
+
+		L.Routing.errorControl(control).addTo(map);
+
 
 	  };
 	</script>
