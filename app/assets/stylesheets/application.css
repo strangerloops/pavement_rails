@@ -101,13 +101,13 @@ h1 a {
   position: relative;
   display: inline-block;
   font-family: 'Raleway', sans-serif;
-  font-size: 40px;
+  font-size: 18px;
 }
 
 .dropdown-content {
   display: none;
   font-family: 'Raleway', sans-serif;
-  font-size: 40px;
+  font-size: 18px;
   position: absolute;
   background-color: rgb(102,227,182);
   min-width: 160px;
@@ -118,5 +118,5 @@ h1 a {
 .dropdown:hover .dropdown-content {
   display: block;
   font-family: 'Raleway', sans-serif;
-  font-size: 40px;
+  font-size: 18px;
 }
