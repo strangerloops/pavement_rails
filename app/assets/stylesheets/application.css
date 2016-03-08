@@ -97,10 +97,22 @@ h1 a {
 	background-image: 'scc-logo.jpg';
 }
 
-.dropdown-menu {
-	background-color: rgb(102,227,182) !important;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.dropdown-menu > li > a {
-	text-align: left !important;
+.dropdown-content {
+    display: none;
+    font-family: 'Raleway', sans-serif;	
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    font-family: 'Raleway', sans-serif;	
 }
