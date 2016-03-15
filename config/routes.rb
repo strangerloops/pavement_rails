@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'map/ride/:id' => 'map#one_ride'
   get 'map/nyc' => 'map#all_new_york'
   get 'map/chi' => 'map#all_chicago'
+  get 'map/user/:id' => 'map#user_rides'
 
   # scoreboards
   get '/scoreboards/rank/:id' => 'scoreboards#global_rank'

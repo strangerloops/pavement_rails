@@ -18,7 +18,7 @@ class MapController < ApplicationController
 
   def one_ride
     readings = Ride.find(params[:id]).readings
-  	@packets = readings.map do |reading|
+    @packets = readings.map do |reading|
       reading.mean_packet
     end.to_json
     @coords = midpoint(readings.first.start_lat, readings.first.start_lon, readings.last.end_lat, readings.last.end_lon)
@@ -41,6 +41,14 @@ class MapController < ApplicationController
     @coords = chi_center
     @other_coords = chi_point
     @zoom = 12
+    render :map
+  end
+
+  def user_rides
+    readings = Ride.find_by_scoreboard_id(params[:id])
+    @packets = readings.map(&:mean_packet).to_json
+    @coords = midpoint(readings.first.start_lat, readings.first.start_lon, readings.last.end_lat, readings.last.end_lon)
+    @zoom = 15
     render :map
   end
 end
