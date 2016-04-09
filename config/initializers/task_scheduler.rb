@@ -28,17 +28,27 @@ daily_scheduler.every day, :first_in => 12.0 do
 end
 
 def cache_chicago
-	packets = Reading.find_each { |reading| in_chicago? reading.start_lat, reading.start_lon }.map do |r| r.mean_packet end.to_json
-	File.open(File.join(Rails.root, 'cache', 'chicago.txt'), 'w+') do |f|
-		f.write packets
-	end
+  packets = []
+  Reading.find_each do |reading|
+    if in_chicago? reading.start_lat, reading.start_lon
+      packets >> reading.mean_packet
+    end
+  end
+  File.open(File.join(Rails.root, 'cache', 'chicago.txt'), 'w+') do |f|
+    f.write packets.to_json
+  end
 end
 
 def cache_nyc
-	packets = Reading.find_each { |reading| in_nyc? reading.start_lat, reading.start_lon }.map do |r| r.mean_packet end.to_json
-	File.open(File.join(Rails.root, 'cache', 'nyc.txt'), 'w+') do |f|
-		f.write packets
-	end
+  packets = []
+  Reading.find_each do |reading|
+    if in_nyc? reading.start_lat, reading.start_lon
+      packets >> reading.mean_packet
+    end
+  end
+  File.open(File.join(Rails.root, 'cache', 'nyc.txt'), 'w+') do |f|
+    f.write packets.to_json
+  end
 end
 
 def cache_scoreboard
