@@ -31,7 +31,7 @@ def cache_chicago
   packets = []
   Reading.find_each do |reading|
     if in_chicago? reading.start_lat, reading.start_lon
-      packets >> reading.mean_packet
+      packets << reading.mean_packet
     end
   end
   File.open(File.join(Rails.root, 'cache', 'chicago.txt'), 'w+') do |f|
@@ -43,7 +43,7 @@ def cache_nyc
   packets = []
   Reading.find_each do |reading|
     if in_nyc? reading.start_lat, reading.start_lon
-      packets >> reading.mean_packet
+      packets << reading.mean_packet
     end
   end
   File.open(File.join(Rails.root, 'cache', 'nyc.txt'), 'w+') do |f|
