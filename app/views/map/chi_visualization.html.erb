@@ -1,6 +1,7 @@
 <head>
   <script type="text/javascript">
     window.onload = function () {
+      console.log("hi!");
       map = L.map('map');
       var layer = Tangram.leafletLayer({
         scene: "<%= asset_path 'cinnabar.yaml' %>",
@@ -10,7 +11,7 @@
 
       map.setView(<%= @coords %>, <%= @zoom %>);
 
-      $.getJSON( "<%= asset_path 'chi_agg_info.txt' %>", function(data){
+      $.getJSON("<%= asset_path 'chi_agg_info.txt' %>", function(data){
         console.log("hey!");
         console.log(data);
         lines = data.split("\n");
@@ -22,7 +23,6 @@
           // 2: num readings
           // 3: distance
           line.split("|");
-
         });
       });
 
