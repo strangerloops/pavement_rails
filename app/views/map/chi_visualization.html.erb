@@ -11,7 +11,12 @@
       map.setView(<%= @coords %>, <%= @zoom %>);
 
       $.getJSON( "<%= asset_path 'chi_agg_info.txt' %>", function(data){
+        console.log("hey!");
         console.log(data);
+        lines = data.split("\n");
+        lines.forEach(function(line){
+
+        });
       });
 
       // JSON.parse(packets).forEach(function(packet){
