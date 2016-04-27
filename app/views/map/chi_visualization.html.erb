@@ -15,6 +15,13 @@
         console.log(data);
         lines = data.split("\n");
         lines.forEach(function(line){
+          // ((41.938984000000005, -87.697807), (41.939037, -87.697807))|0.210295645221|1|5.88673895339
+          // lat_lon_tuple|agg_road_bumpiness|total_road_readings|seg_dist
+          // 0: lat/lon
+          // 1: agg bumpiness
+          // 2: num readings
+          // 3: distance
+          line.split("|");
 
         });
       });
