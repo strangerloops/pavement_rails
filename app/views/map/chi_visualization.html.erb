@@ -15,11 +15,31 @@
         url: "<%= asset_path 'chi_agg_info.txt' %>",
         dataType: "text",
         success: function(data) {
-          console.log("hey!");
           lines = data.split("\n");
           lines.forEach(function(line){
-            console.log(line.split("|"));
+            var splitLine = line.split("|");
             // lat_lon_tuple(0) | agg_road_bumpiness(1) | total_road_readings(2) | seg_dist(3)
+            var lat_lon_tuple = splitLine[0];
+            var agg_road_bumpiness = splitLine[1];
+            var split_tuple = lat_lon_tuple.split(",").map(function(s){ s.replace(/\(/g, "").replace(/\)/g, "") });
+            var lat1 = split_tuple[0];
+            var lon1 = split_tuple[1];
+            var lat2 = split_tuple[2];
+            var lon2 = split_tuple[3];
+            var start = new L.LatLng(lat1, lon1);
+            var end   = new L.LatLng(lat2, lon2);
+            var points = [start, end];
+            var red = (agg_road_bumpiness * 250) % 255;
+            var green = 0;
+            var blue = 255 - ((agg_road_bumpiness * 250) % 255);
+            var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
+            var poly = new L.Polyline(points, {
+              color: color,
+              weight: 10,
+              opacity: 0.4 + (agg_road_bumpiness * 2),
+              smoothFactor: 0
+            });
+            map.addLayer(poly);
           });
         }
       });
