@@ -8,29 +8,29 @@
       });
       layer.addTo(map);
 
-    map.setView(<%= @coords %>, <%= @zoom %>);
+      map.setView(<%= @coords %>, <%= @zoom %>);
 
       $.getJSON('chi_agg_info.txt', function(data){
         console.log(data);
-      })
-
-      JSON.parse(packets).forEach(function(packet){
-        var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
-        var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
-        var points = [start, end];
-        var roughness = packet['roughness'];
-        var red = (roughness * 250) % 255;
-        var green = 0;
-        var blue = 255 - ((roughness * 250) % 255);
-        var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
-        var poly = new L.Polyline(points, {
-          color: color,
-          weight: 10,
-          opacity: 0.4 + (roughness * 2),
-          smoothFactor: 0
-        });
-        map.addLayer(poly);
       });
+
+      // JSON.parse(packets).forEach(function(packet){
+      //   var start = new L.LatLng(packet['start_location'][0], packet['start_location'][1]);
+      //   var end   = new L.LatLng(packet['end_location'][0],   packet['end_location'][1]);
+      //   var points = [start, end];
+      //   var roughness = packet['roughness'];
+      //   var red = (roughness * 250) % 255;
+      //   var green = 0;
+      //   var blue = 255 - ((roughness * 250) % 255);
+      //   var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
+      //   var poly = new L.Polyline(points, {
+      //     color: color,
+      //     weight: 10,
+      //     opacity: 0.4 + (roughness * 2),
+      //     smoothFactor: 0
+      //   });
+      //   map.addLayer(poly);
+      };
 
   </script>
 </head>
