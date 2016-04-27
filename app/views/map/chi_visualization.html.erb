@@ -21,7 +21,9 @@
             // lat_lon_tuple(0) | agg_road_bumpiness(1) | total_road_readings(2) | seg_dist(3)
             var lat_lon_tuple = splitLine[0];
             var agg_road_bumpiness = splitLine[1];
-            var split_tuple = lat_lon_tuple.split(",").map(function(s){ s.replace(/\(/g, "").replace(/\)/g, "") });
+            var split_tuple = lat_lon_tuple.split(",").map(function(s){
+              return s.replace(/\(/g, "").replace(/\)/g, "").trim();
+            });
             var lat1 = split_tuple[0];
             var lon1 = split_tuple[1];
             var lat2 = split_tuple[2];
