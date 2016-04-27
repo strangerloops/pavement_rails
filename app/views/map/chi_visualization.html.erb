@@ -10,7 +10,7 @@
 
       map.setView(<%= @coords %>, <%= @zoom %>);
 
-      $.getJSON('chi_agg_info.txt', function(data){
+      $.getJSON( "<%= asset_path 'chi_agg_info.txt' %>", function(data){
         console.log(data);
       });
 
