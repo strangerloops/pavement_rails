@@ -24,10 +24,10 @@
             var split_tuple = lat_lon_tuple.split(",").map(function(s){
               return s.replace(/\(/g, "").replace(/\)/g, "").trim();
             });
-            var lat1 = split_tuple[0];
-            var lon1 = split_tuple[1];
-            var lat2 = split_tuple[2];
-            var lon2 = split_tuple[3];
+            var lat1 = Number(split_tuple[0]);
+            var lon1 = Number(split_tuple[1]);
+            var lat2 = Number(split_tuple[2]);
+            var lon2 = Number(split_tuple[3]);
             var start = new L.LatLng(lat1, lon1);
             var end   = new L.LatLng(lat2, lon2);
             var points = [start, end];
