@@ -51,4 +51,10 @@ class MapController < ApplicationController
     @zoom = 15
     render :map
   end
+
+  def data_viz_chi
+    @coords = chi_center
+    @zoom = 12
+    render :chi_visualization
+  end
 end

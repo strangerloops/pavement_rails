@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'map/nyc' => 'map#all_new_york'
   get 'map/chi' => 'map#all_chicago'
   get 'map/user/:id' => 'map#user_rides'
+  get 'map/chi/dataviz' => 'map#data_viz_chi'
 
   # scoreboards
   get '/scoreboards/rank/:id' => 'scoreboards#global_rank'
