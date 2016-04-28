@@ -28,20 +28,22 @@
             var lon1 = Number(split_tuple[1]);
             var lat2 = Number(split_tuple[2]);
             var lon2 = Number(split_tuple[3]);
-            var start = new L.LatLng(lat1, lon1);
-            var end   = new L.LatLng(lat2, lon2);
-            var points = [start, end];
-            var red = (agg_road_bumpiness * 250) % 255;
-            var green = 0;
-            var blue = 255 - ((agg_road_bumpiness * 250) % 255);
-            var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
-            var poly = new L.Polyline(points, {
-              color: color,
-              weight: 10,
-              opacity: 0.4 + (agg_road_bumpiness * 2),
-              smoothFactor: 0
-            });
-            map.addLayer(poly);
+            if (lat1 && lat2 && lon1 && lon2){
+              var start = new L.LatLng(lat1, lon1);
+              var end   = new L.LatLng(lat2, lon2);
+              var points = [start, end];
+              var red = (agg_road_bumpiness * 250) % 255;
+              var green = 0;
+              var blue = 255 - ((agg_road_bumpiness * 250) % 255);
+              var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
+              var poly = new L.Polyline(points, {
+                color: color,
+                weight: 10,
+                opacity: 0.4 + (agg_road_bumpiness * 2),
+                smoothFactor: 0
+              });
+              map.addLayer(poly);
+            }
           });
         }
       });
