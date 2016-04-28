@@ -21,6 +21,7 @@
             // lat_lon_tuple(0) | agg_road_bumpiness(1) | total_road_readings(2) | seg_dist(3)
             var lat_lon_tuple = splitLine[0];
             var agg_road_bumpiness = splitLine[1];
+            var totalReadings = splitLine[2]
             var split_tuple = lat_lon_tuple.split(",").map(function(s){
               return s.replace(/\(/g, "").replace(/\)/g, "").trim();
             });
@@ -38,8 +39,8 @@
               var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
               var poly = new L.Polyline(points, {
                 color: color,
-                weight: 10,
-                opacity: 0.4 + (agg_road_bumpiness * 2),
+                weight: 10 * (0.5 * totalReadings),
+                opacity: 1,
                 smoothFactor: 0
               });
               map.addLayer(poly);
