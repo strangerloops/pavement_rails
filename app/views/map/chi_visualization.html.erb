@@ -39,7 +39,7 @@
               var color = "rgb(" + Math.floor(red) + "," + Math.floor(green) + "," + Math.floor(blue) +")";
               var poly = new L.Polyline(points, {
                 color: color,
-                weight: 40 * (0.125 * totalReadings),
+                weight: 4.875 + (0.125 * totalReadings),
                 opacity: 1,
                 smoothFactor: 0
               });
