@@ -125,3 +125,24 @@ h1 a {
   list-style-type: none;
   text-align: left;
 }
+
+.list {
+	padding-bottom:1em;
+	font-size:24px;
+}
+
+.download-image {
+	display: block;
+	width: 135px;
+	height: auto;
+	margin-right:1em;
+}
+
+.row {
+	padding-bottom:2em;
+}
+
+.requiredlegaltext {
+	font-style:italic;
+	font-size:8px;
+}
